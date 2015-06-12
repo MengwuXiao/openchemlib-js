@@ -16,5 +16,11 @@
     "war": "actelionStructureViewer",
     "entrypoint": "com.actelion.research.gwt.StructureViewer",
     "fake": false
+  },
+  {
+    "name": "enhanced",
+    "war": "actelionEnhanced",
+    "entrypoint": "com.actelion.research.gwt.Enhanced",
+    "fake": false
   }
 ]

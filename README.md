@@ -19,7 +19,7 @@ To build this project, you need :
 ### Configure directories
 
 Copy `config.default.json` to `config.json` and put the path to the GWT classes on your computer.  
-If you want to update the java code from openchemlib, provide the path to the openchemlib source.
+If you want to update the java code from openchemlib or datawarrior, provide the path to the respective source.
 
 ### Gulp tasks
 
@@ -42,6 +42,10 @@ Compile and export
 #### copy:openchemlib
 
 Copy the required java files from the openchemlib project
+
+#### copy:datawarrior
+
+Copy the required java files from the datawarrior project
 
 ## License
 

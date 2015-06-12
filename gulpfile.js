@@ -5,7 +5,15 @@ var gulp = require('gulp');
 var path = require('path');
 var fs = require('fs-extra');
 var exporter = require('gwt-api-exporter');
+
 var pack = require('./package.json');
+var packGPL = {};
+for (var i in pack) {
+    if (pack.hasOwnProperty(i))
+        packGPL[i] = pack[i];
+}
+packGPL.license = 'GPL-3.0';
+
 var argv = require('minimist')(process.argv.slice(2));
 
 var verbose = argv.v;
@@ -54,6 +62,7 @@ gulp.task('export', build);
 gulp.task('default', ['build:min']);
 
 gulp.task('copy:openchemlib', copyOpenchemlib);
+gulp.task('copy:datawarrior', copyDatawarrior);
 
 function build(done) {
     var prom = [];
@@ -72,12 +81,15 @@ function build(done) {
         if (!file) {
             throw new Error('Could not find GWT file for module ' + mod.name);
         }
+
+        var packageJSON = (mod.name === 'enhanced') ? packGPL : pack;
+
         prom.push(exporter({
             input: file,
             output: 'dist/openchemlib-' + mod.name + '.js',
             exports: 'OCL',
             fake: mod.fake,
-            'package': pack
+            'package': packageJSON
         }));
     }
     Promise.all(prom).then(function () {
@@ -136,6 +148,26 @@ function copyOpenchemlib() {
     }
 
     var modified = chemlibClasses.modified;
+    log('Copying ' + modified.length + ' modified classes');
+    for (var i = 0; i < modified.length; i++) {
+        fs.copySync(modifiedDir + modified[i], outDir + modified[i]);
+    }
+}
+
+function copyDatawarrior() {
+    var dwarDir = config.datawarrior;
+    var outDir = './src/com/actelion/research/gwt/datawarrior/';
+    var modifiedDir = './datawarrior/modified/';
+
+    var dwarClasses = require('./datawarrior/classes');
+
+    var toCopy = dwarClasses.copy;
+    log('Copying ' + toCopy.length + ' classes from datawarrior');
+    for (var i = 0; i < toCopy.length; i++) {
+        fs.copySync(path.join(dwarDir, toCopy[i]), outDir + toCopy[i]);
+    }
+
+    var modified = dwarClasses.modified;
     log('Copying ' + modified.length + ' modified classes');
     for (var i = 0; i < modified.length; i++) {
         fs.copySync(modifiedDir + modified[i], outDir + modified[i]);

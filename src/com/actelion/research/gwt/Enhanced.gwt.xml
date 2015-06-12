@@ -1,0 +1,14 @@
+<module rename-to="actelionEnhanced">
+    <!-- Inherit the core Web Toolkit stuff. -->
+    <inherits name='com.google.gwt.user.User'/>
+
+    <!-- Dependencies -->
+    <inherits name="com.actelion.research.gwt.jre.Jre" />
+    <inherits name="com.actelion.research.gwt.chemlib.ChemLib" />
+    <inherits name="com.actelion.research.gwt.datawarrior.Datawarrior" />
+    <inherits name="com.actelion.research.gwt.Core" />
+
+    <source path="enhanced"/>
+    <entry-point class="com.actelion.research.gwt.enhanced.Enhanced" />
+    <set-property name="user.agent" value="safari" />
+</module>
