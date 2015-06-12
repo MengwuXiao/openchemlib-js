@@ -45,5 +45,6 @@ Copy the required java files from the openchemlib project
 
 ## License
 
-BSD
+The core library, viewer and full packages are released under the [BSD-3-Clause license](./LICENSE-BSD)
 
+The enhanced library is released under the [GPL-3.0 license](./LICENSE-GPL)
