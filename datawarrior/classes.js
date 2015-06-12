@@ -1,4 +1,6 @@
 var classes = [
+    'calc/ThreadMaster',
+
     'chem/prediction/ToxicityPredictor'
 ];
 

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry excluding="com/actelion/research/gwt/cheminfo/|com/actelion/research/gwt/chemlib/|com/actelion/research/gwt/jre/|org/cheminfo/actelion/jre/|com/actelion/research/gwt/jre/|com/actelion/research/gwt/cheminfo/" kind="src" path="src"/>
+	<classpathentry excluding="com/actelion/research/gwt/cheminfo/|com/actelion/research/gwt/cheminfo/|com/actelion/research/gwt/chemlib/|com/actelion/research/gwt/datawarrior/|com/actelion/research/gwt/jre/|com/actelion/research/gwt/jre/|org/cheminfo/actelion/jre/|com/actelion/research/gwt/datawarrior/" kind="src" path="src"/>
+	<classpathentry kind="src" path="src/com/actelion/research/gwt/datawarrior"/>
 	<classpathentry kind="src" path="src/com/actelion/research/gwt/cheminfo"/>
 	<classpathentry kind="src" path="src/com/actelion/research/gwt/jre"/>
 	<classpathentry kind="src" path="src/com/actelion/research/gwt/chemlib"/>
